@@ -199,5 +199,104 @@ input{
   border-radius: 4px;
 }
 
+/* screen 768px */
+@media (min-width: 768px) {
+  nav h1{
+    font-size: 42px;
+    transform: translate(-7%, 30%);
+    padding: 0;
+  }
 
+  nav img{
+    width: 120px;
+  }
 
+  /* General style */
+  section{
+    width: 450px;
+  }
+
+  input{
+    width: 19rem;
+  }
+
+  .buttons{
+    margin: 0.5rem 1rem 0 16rem;
+  }
+
+  .detail_buttons{
+    margin: 0.5rem 1rem 0 12rem;
+  }
+
+  /* Message style */
+  .area_message{
+    width: 25rem;
+  }
+}
+
+/* screen 1280px */
+@media (min-width: 1280px) {
+  nav h1{
+    font-size: 48px;
+    transform: translate(-20%, 30%);
+    padding-right: 50px;
+  }
+
+  nav img{
+    width: 140px;
+    margin-left: 5rem;
+  }
+
+  /* General style */
+  section{
+    width: 500px;
+  }
+
+  input{
+    width: 22rem;
+  }
+
+  .buttons{
+    margin: 0.5rem 1rem 0 19rem;
+  }
+
+  .detail_buttons{
+    margin: 0.5rem 1rem 0 15rem;
+  }
+
+  /* Message style */
+  .area_message{
+    width: 28rem;
+  }
+}
+
+/* TABLES */
+/* General Style */
+.table{
+  font-size: 10px;
+  width: 90%;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.link_vista{
+  text-decoration: none;
+}
+
+/* screen 768px */
+@media (min-width: 768px) {
+  .table{
+    width: 80%;
+  }
+
+  .td_name .delete{
+
+  }
+}
+
+/* screen 1280px */
+@media (min-width: 1280px){
+  .table{
+    width: 60%;
+  }
+}
