@@ -80,3 +80,124 @@ nav h1{
   transform: translate(-10%, 15%);
   padding: 0 30px;
 }
+
+/* FORMS */
+/* General style */
+section{
+  background-color: var(--Gray-ligth-form);
+  width: 290px;
+  /* margin: 12rem 2rem; */
+  padding: 0.8rem 0.3rem;
+  border: 2px solid var(--Gray-border);
+  border-radius: 8px;
+  box-shadow: 2px 3px 8px rgb(63, 62, 62) ;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+form{
+  border-radius: 5px;
+}
+
+label{
+  width: 6rem;
+  background-color: var(--Gray-ligth-label);
+  border-radius: 3px;
+}
+
+input{
+  width: 10rem;
+  background-color: var(--Very-light-gray-background-input);
+}
+
+.form_buttons{
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0 0 7rem;
+  padding: 0.5rem;
+}
+
+.form_buttons .save{
+  background-color: var(--Blue-button);
+  border-radius: 10px;
+  margin-left: 1.7rem;
+  padding: 3px 6px;
+  outline: 2px solid var(--Blue-button);
+  outline-offset: 2px;
+  border: none;
+}
+
+.form_buttons .save:hover{
+  background-color: var(--Blue-button-hover);
+}
+
+.form_buttons .cancel, .detail_buttons .cancel, td .delete{
+  background-color: var(--Red-button);
+  border-radius: 10px;
+  padding: 3px 6px;
+  outline: 2px solid var(--Red-button);
+  outline-offset: 2px;
+  border: none;
+}
+
+
+.form_buttons .cancel:hover, .detail_buttons .cancel:hover, td .delete:hover{
+  background-color: var(--Red-button-hover);
+}
+
+.detail_buttons{
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0 0 3rem;
+  padding: 0.5rem ;
+}
+
+.detail_buttons .edit{
+  background-color: var(--Green-button);
+  border-radius: 10px;
+  margin-left: 1rem;
+  padding: 3px 6px;
+  outline: 2px solid var(--Green-button);
+  outline-offset: 2px;
+  border: none;
+}
+
+.detail_buttons .edit:hover{
+  background-color: var(--Green-button-hover);
+}
+
+.detail_buttons .update{
+  background-color: var(--Brown-button);
+  border-radius: 10px;
+  margin-left: 0rem;
+  padding: 3px 6px;
+  outline: 2px solid var(--Brown-button);
+  outline-offset: 2px;
+  border: none;
+}
+
+.detail_buttons .update:hover{
+  background-color: var(--Brown-button-hover);
+}
+
+.form_tag{
+  padding-bottom: 4px;
+}
+.detail_tag{
+  padding-bottom: 4px;
+}
+
+/* Message style */
+.label_message{
+  margin-bottom: 8px;
+}
+
+.area_message{
+  width: 16rem;
+  background-color: var(--Very-light-gray-background-input);
+  border-radius: 4px;
+}
+
+
+
