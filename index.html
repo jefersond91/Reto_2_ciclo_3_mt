@@ -16,6 +16,7 @@
     </nav>
   </header>
 
+  <!-- Machine List -->
   <h2>Machine List</h2>
   <button class="add">Add Machine</button>
   <table class="table table_machine">
@@ -43,11 +44,11 @@
       </tr>
     </tbody>
   </table>
-
   
+    <!-- Client List -->
   <h2>Client List</h2>
   <button class="add">Add Client</button>
-  <table class="table table_machine">
+  <table class="table table_client">
     <thead>
       <tr>
         <th>ID</th>
@@ -63,7 +64,7 @@
         <td>Taladro</td>
         <td>xxxx@gmail.com</td>
         <td>33</td>
-        <td class="td_name">
+        <td class="td_action">
           <button class="details">Details</button>
           <button class="delete">Delete</button>
         </td>
@@ -71,9 +72,10 @@
     </tbody>
   </table>
   
+  <!-- Message List -->
   <h2>Message List</h2>
   <button class="add">Add Message</button>
-  <table class="table table_machine">
+  <table class="table table_message">
     <thead>
       <tr>
         <th>ID</th>
@@ -87,7 +89,7 @@
         <td>
           este es el lugar para el mensaje
         </td>
-        <td class="td_name">
+        <td class="td_action">
           <button class="details">Details</button>
           <button class="delete">Delete</button>
         </td>
@@ -95,8 +97,8 @@
     </tbody>
   </table>
 
-  Machine Form
-  <section class="sectionForm" id="machine">
+  <!-- Machine Form -->
+  <section class="sectionForm_machine" id="machine">
     <form action="" class="form machine_form" method="post">
       <h2>Machine Register</h2>
       <h3>New Machine</h3>
@@ -123,8 +125,8 @@
     </form>
   </section>
 
-  <!-- Client Form
-  <section class="sectionForm" id="client">
+  <!-- Client Form -->
+  <section class="sectionForm_client" id="client">
     <form action="" class="client_form" method="post">
       <h2>Client Register</h2>
       <div class="form_tag client_tag">
@@ -144,10 +146,10 @@
         <button class="cancel">Cancel</button>
       </div>
     </form>
-  </section> -->
+  </section>
 
-  <!-- Message Form
-  <section class="sectionForm" id="message">
+  <!-- Message Form -->
+  <section class="sectionForm__message" id="message">
     <form action="" class="message_form" method="post">
       <h2>Message Register</h2>
       <div class="form_tag message_tag">
@@ -159,11 +161,11 @@
         <button class="cancel">Cancel</button>
       </div>
     </form>
-  </section> -->
+  </section>
 
-    <!-- Machine Details
-  <section class="sectionForm" id="machine">
-    <form action="" class="form machine_form">
+  <!-- Machine Details -->
+  <section class="sectionDetails_machine" id="machine">
+    <form action="" class="form machine_details" mmethod="post">
       <h2>Machine Details</h2>
       <div class="details_tag machine_tag">
         <label for="">Brand</label>
@@ -187,10 +189,10 @@
         <button class="cancel">Cancel</button>
       </div>
     </form>
-  </section>  -->
+  </section>
   
-  <!-- Client Details
-  <section class="sectionForm" id="client">
+  <!-- Client Details -->
+  <section class="sectionDetails_client" id="client">
     <form action="" class="form client_form">
       <h2>Client Details</h2>
       <div class="details_tag client_tag">
@@ -211,10 +213,10 @@
         <button class="cancel">Cancel</button>
       </div>
     </form>
-  </section>  -->
+  </section> 
 
-  <!-- Message Details
-  <section class="sectionForm" id="client">
+  <!-- Message Details -->
+  <section class="sectionDetails_message" id="client">
     <form action="" class="form client_form">
       <h2>Message Details</h2>
       <div class="form_tag message_tag">
@@ -227,9 +229,30 @@
         <button class="cancel">Cancel</button>
       </div>
     </form>
-  </section>  -->
+  </section> 
+
+  <!-- Machine Confirmation -->
+  <section class="delete_final_machine">
+    <h2>Do you want to delete the machine: xxxxx?</h2>
+    <button type="submit" class="save">Save</button>
+    <button class="cancel">Cancel</button>
+  </section>
+
+  <!-- Client Confirmation -->
+  <section class="delete_final_client">
+    <h2>Do you want to delete the client: xxxxx?</h2>
+    <button type="submit" class="save">Save</button>
+    <button class="cancel">Cancel</button>
+  </section>
+  <!-- Message Confirmation -->
+  <section class="delete_final_message">
+    <h2>Do you want to delete the message: xxxxx?</h2>
+    <button type="submit" class="save">Save</button>
+    <button class="cancel">Cancel</button>
+  </section>
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="/js/app.js"></script>
 </body>
 </html>

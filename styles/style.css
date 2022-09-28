@@ -273,24 +273,20 @@ input{
 /* TABLES */
 /* General Style */
 .table{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   font-size: 10px;
   width: 90%;
   border: 1px solid black;
   text-align: center;
 }
 
-.link_vista{
-  text-decoration: none;
-}
-
 /* screen 768px */
 @media (min-width: 768px) {
   .table{
     width: 80%;
-  }
-
-  .td_name .delete{
-
+    font-size: 14px;
   }
 }
 
@@ -298,5 +294,6 @@ input{
 @media (min-width: 1280px){
   .table{
     width: 60%;
+    font-size: 18px;
   }
 }
