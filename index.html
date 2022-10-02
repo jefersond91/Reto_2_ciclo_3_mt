@@ -9,250 +9,333 @@
   <title>Reto 2 Mision Tic 2022</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <img src="/assets/logo-rent-machinery.png" alt="">
-      <h1>RENT MACHINERY G29</h1>
+  <header class="header">
+    <div class="logo-title">
+      <img class="logo" src="/assets/logo-rent-machinery.png" alt="">
+      <h1 class="h1">
+        <a href="/index.html" title="Rent Machinery G29" class="a">Rent Machinery G29</a>
+      </h1>
+    </div>
+    <!-- Nav Bar Burger Menu -->
+    <nav class="nav">
+      </div>
+      <div class="menu-icon droplist">
+        <input class="checkbox" type="checkbox" id="burger_icon" />
+        <label for="burger_icon" class="bar-btn"> <img src="/assets/menu.png" alt=""></label>
+        <ul class="ul-nav-menu">
+          <li class="li">
+            <a href="#machine" title="Machines" class="a">Machines</a>
+          </li>
+          <li class="li">
+            <a href="#client" title="Clients" class="a">Clients</a>
+          </li>
+          <li class="li">
+            <a href="#message" target="" title="Messages" class="a">Messages</a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <!-- Machine List -->
-  <h2>Machine List</h2>
-  <button class="add">Add Machine</button>
-  <table class="table table_machine">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Category ID</th>
-        <th>Name</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Black and Decker</td>
-        <td>2000</td>
-        <td>1</td>
-        <td>Taladro</td>
-        <td class="td_name">
-          <button class="details">Details</button>
-          <button class="delete">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <main class="main">
+    <div class="dates dates_machine" id="machine">
+      <h2>Machine List</h2>
+      <button class="button_add">Add Machine</button>
+      <table class="table table_machine">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Category ID</th>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Black and Decker</td>
+            <td>2000</td>
+            <td>1</td>
+            <td>Taladro</td>
+            <td class="td_name buttons_actions">
+              <button class="button_details">Details</button>
+              <button class="button_delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Black and Decker</td>
+            <td>2000</td>
+            <td>1</td>
+            <td>Taladro</td>
+            <td class="td_name buttons_actions">
+              <button class="button_details">Details</button>
+              <button class="button_delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Black and Decker</td>
+            <td>2000</td>
+            <td>1</td>
+            <td>Taladro</td>
+            <td class="td_name buttons_actions">
+              <button class="button_details">Details</button>
+              <button class="button_delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Black and Decker</td>
+            <td>2000</td>
+            <td>1</td>
+            <td>Taladro</td>
+            <td class="td_name buttons_actions">
+              <button class="button_details">Details</button>
+              <button class="button_delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Machine Form -->
+    <section class="sectionForm_machine">
+      <form action="" class="form machine_form" method="post">
+        <h2>Machine Register</h2>
+        <div class="form_tag machine_tag">
+          <label class="label" for="">Brand</label>
+          <input type="text" placeholder="brand">
+        </div>
+        <div class="form_tag machine_tag">
+          <label class="label" for="">Model</label>
+          <input type="number" placeholder="model">
+        </div>
+        <div class="form_tag machine_tag">
+          <label class="label" for="">Category ID</label>
+          <input type="number" placeholder="category">
+        </div>
+        <div class="form_tag machine_tag">
+          <label class="label" for="">Name</label>
+          <input type="text" placeholder="name">
+        </div>
+        <div class="buttons form_buttons machine_buttons">
+          <button type="submit" class="button_save">Save</button>
+          <button class="button_cancel">Cancel</button>
+        </div>
+      </form>
+    </section>
+    
+    <!-- Machine Details -->
+    <section class="sectionDetails_machine">
+      <form action="" class="form machine_details" method="post">
+        <h2>Machine Details</h2>
+        <div class="details_tag machine_tag">
+          <label class="label" for="">Brand</label>
+          <input type="text" >
+        </div>
+        <div class="details_tag machine_tag">
+          <label class="label" for="">Model</label>
+          <input type="number" >
+        </div>
+        <div class="details_tag machine_tag">
+          <label class="label" for="">Category ID</label>
+          <input type="number" >
+        </div>
+        <div class="details_tag machine_tag">
+          <label class="label" for="">Name</label>
+          <input type="text" >
+        </div>
+        <div class="buttons details_buttons machine_buttons">
+          <button class="button_edit">Edit</button>
+          <button class="button_update">Update</button>
+          <button class="button_cancel">Cancel</button>
+        </div>
+      </form>
+    </section>
+    
+    <!-- Machine Confirmation -->
+    <section class="delete_final delete_final_machine">
+      <h2>Do you want to delete the machine: xxxxx?</h2>
+      <div class="confirmation_buttons">
+        <button type="submit" class="button_save">Save</button>
+        <button class="button_cancel">Cancel</button>
+      </div>
+    </section>
+    <!-- ---------------------------------------------------- -->
+    
     <!-- Client List -->
-  <h2>Client List</h2>
-  <button class="add">Add Client</button>
-  <table class="table table_client">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Age</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Taladro</td>
-        <td>xxxx@gmail.com</td>
-        <td>33</td>
-        <td class="td_action">
-          <button class="details">Details</button>
-          <button class="delete">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="dates dates_client" id="client">
+      <h2>Client List <i class="gg-menu-hotdog"></i></h2>
+      <button class="button_add">Add Client</button>
+      <table class="table table_client">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Taladro</td>
+            <td>xxxx@gmail.com</td>
+            <td>33</td>
+            <td class="td_action">
+              <button class="button_details">Details</button>
+              <button class="button_delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    
+    <!-- Client Form -->
+    <section class="sectionForm_client">
+      <form action="" class="client_form" method="post">
+        <h2>Client Register</h2>
+        <div class="form_tag client_tag">
+          <label class="label" for="">Name</label>
+          <input type="text" placeholder="name">
+        </div>
+        <div class="form_tag client_tag">
+          <label class="label" for="">Email</label>
+          <input type="email" placeholder="xxx@gmail.com">
+        </div>
+        <div class="form_tag client_tag">
+          <label class="label" for="">Age</label>
+          <input type="number" placeholder="0 to 100" min="0" max="100">
+        </div>
+        <div class="buttons form_buttons client_buttons">
+          <button type="submit" class="button_save">Save</button>
+          <button class="button_cancel">Cancel</button>
+        </div>
+      </form>
+    </section>
+    
+    <!-- Client Details -->
+    <section class="sectionDetails_client">
+      <form action="" class="form client_form">
+        <h2>Client Details</h2>
+        <div class="details_tag client_tag">
+          <label class="label" for="">Name</label>
+          <input type="text" >
+        </div>
+        <div class="details_tag client_tag">
+          <label class="label" for="">Email</label>
+          <input type="email" >
+        </div>
+        <div class="details_tag client_tag">
+          <label class="label" for="">Age</label>
+          <input type="number" >
+        </div>
+        <div class="buttons details_buttons client_buttons">
+          <button class="button_edit">Edit</button>
+          <button class="button_update">Update</button>
+          <button class="button_cancel">Cancel</button>
+        </div>
+      </form>
+    </section> 
+    
+    <!-- Client Confirmation -->
+    <section class="delete_final delete_final_client">
+      <h2>Do you want to delete the client: xxxxx?</h2>
+      <div class="confirmation_buttons">
+        <button type="submit" class="button_save">Save</button>
+        <button class="button_cancel">Cancel</button>
+      </div>
+    </section>
+    
+    <!-- ---------------------------------------------------- -->
+    <!-- Message List -->
+    <div class="dates dates_message" id="message">
+      <h2>Message List</h2>
+      <button class="button_add">Add Message</button>
+      <table class="table table_message">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Message</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              este es el lugar para el mensaje
+            </td>
+            <td class="td_action">
+              <button class="button_details">Details</button>
+              <button class="button_delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Message Form -->
+    <section class="sectionForm__message">
+      <form action="" class="message_form" method="post">
+        <h2>Message Register</h2>
+        <div class="form_tag message_tag">
+          <label class="label_message" for="">Message</label>
+          <textarea class="area_message" name="" id="" rows="5" placeholder="message..."></textarea>
+        </div>
+        <div class="buttons form_buttons message_buttons">
+          <button type="submit" class="button_save">Save</button>
+          <button class="button_cancel">Cancel</button>
+        </div>
+      </form>
+    </section>
+    
+    <!-- Message Details -->
+    <section class="sectionDetails_message">
+      <form action="" class="form client_form">
+        <h2>Message Details</h2>
+        <div class="form_tag message_tag">
+          <label class="label_message" for="">Message</label>
+          <textarea class="area_message" name="" id="" rows="5" ></textarea>
+        </div>
+        <div class="buttons details_buttons client_buttons">
+          <button class="button_edit">Edit</button>
+          <button class="button_update">Update</button>
+          <button class="button_cancel">Cancel</button>
+        </div>
+      </form>
+    </section> 
+    
+    <!-- Message Confirmation -->
+    <section class="delete_final delete_final_message">
+      <h2>Do you want to delete the message: xxxxx?</h2>
+      <div class="confirmation_buttons">
+        <button type="submit" class="button_save">Save</button>
+        <button class="button_cancel">Cancel</button>
+      </div>
+    </section>
+  </main>
   
-  <!-- Message List -->
-  <h2>Message List</h2>
-  <button class="add">Add Message</button>
-  <table class="table table_message">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Message</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>
-          este es el lugar para el mensaje
-        </td>
-        <td class="td_action">
-          <button class="details">Details</button>
-          <button class="delete">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 
-  <!-- Machine Form -->
-  <section class="sectionForm_machine" id="machine">
-    <form action="" class="form machine_form" method="post">
-      <h2>Machine Register</h2>
-      <h3>New Machine</h3>
-      <div class="form_tag machine_tag">
-        <label for="">Brand</label>
-        <input type="text" placeholder="brand">
-      </div>
-      <div class="form_tag machine_tag">
-        <label for="">Model</label>
-        <input type="number" placeholder="model">
-      </div>
-      <div class="form_tag machine_tag">
-        <label for="">Category ID</label>
-        <input type="number" placeholder="category">
-      </div>
-      <div class="form_tag machine_tag">
-        <label for="">Name</label>
-        <input type="text" placeholder="name">
-      </div>
-      <div class="buttons form_buttons machine_buttons">
-        <button type="submit" class="save">Save</button>
-        <button class="cancel">Cancel</button>
-      </div>
-    </form>
-  </section>
+  <footer class="footer">
+    <span class="span">Hecho con amor ❤️ por: Jeferson Mesa | <i class="far fa-copyright"></i> "2022 all rigths
+      reserved"
+      </span>
+  </footer>
 
-  <!-- Client Form -->
-  <section class="sectionForm_client" id="client">
-    <form action="" class="client_form" method="post">
-      <h2>Client Register</h2>
-      <div class="form_tag client_tag">
-        <label for="">Name</label>
-        <input type="text" placeholder="name">
-      </div>
-      <div class="form_tag client_tag">
-        <label for="">Email</label>
-        <input type="email" placeholder="xxx@gmail.com">
-      </div>
-      <div class="form_tag client_tag">
-        <label for="">Age</label>
-        <input type="number" placeholder="0 to 100">
-      </div>
-      <div class="buttons form_buttons client_buttons">
-        <button type="submit" class="save">Save</button>
-        <button class="cancel">Cancel</button>
-      </div>
-    </form>
-  </section>
-
-  <!-- Message Form -->
-  <section class="sectionForm__message" id="message">
-    <form action="" class="message_form" method="post">
-      <h2>Message Register</h2>
-      <div class="form_tag message_tag">
-        <label class="label_message" for="">Message</label>
-        <textarea class="area_message" name="" id="" rows="5" placeholder="message..."></textarea>
-      </div>
-      <div class="buttons form_buttons message_buttons">
-        <button type="submit" class="save">Save</button>
-        <button class="cancel">Cancel</button>
-      </div>
-    </form>
-  </section>
-
-  <!-- Machine Details -->
-  <section class="sectionDetails_machine" id="machine">
-    <form action="" class="form machine_details" mmethod="post">
-      <h2>Machine Details</h2>
-      <div class="details_tag machine_tag">
-        <label for="">Brand</label>
-        <input type="text" >
-      </div>
-      <div class="details_tag machine_tag">
-        <label for="">Model</label>
-        <input type="number" >
-      </div>
-      <div class="details_tag machine_tag">
-        <label for="">Category ID</label>
-        <input type="number" >
-      </div>
-      <div class="details_tag machine_tag">
-        <label for="">Name</label>
-        <input type="text" >
-      </div>
-      <div class="buttons details_buttons machine_buttons">
-        <button class="edit">Edit</button>
-        <button class="update">Update</button>
-        <button class="cancel">Cancel</button>
-      </div>
-    </form>
-  </section>
-  
-  <!-- Client Details -->
-  <section class="sectionDetails_client" id="client">
-    <form action="" class="form client_form">
-      <h2>Client Details</h2>
-      <div class="details_tag client_tag">
-        <label for="">Name</label>
-        <input type="text" >
-      </div>
-      <div class="details_tag client_tag">
-        <label for="">Email</label>
-        <input type="email" >
-      </div>
-      <div class="details_tag client_tag">
-        <label for="">Age</label>
-        <input type="number" >
-      </div>
-      <div class="buttons details_buttons client_buttons">
-        <button class="edit">Edit</button>
-        <button class="update">Update</button>
-        <button class="cancel">Cancel</button>
-      </div>
-    </form>
-  </section> 
-
-  <!-- Message Details -->
-  <section class="sectionDetails_message" id="client">
-    <form action="" class="form client_form">
-      <h2>Message Details</h2>
-      <div class="form_tag message_tag">
-        <label class="label_message" for="">Message</label>
-        <textarea class="area_message" name="" id="" rows="5" ></textarea>
-      </div>
-      <div class="buttons details_buttons client_buttons">
-        <button class="edit">Edit</button>
-        <button class="update">Update</button>
-        <button class="cancel">Cancel</button>
-      </div>
-    </form>
-  </section> 
-
-  <!-- Machine Confirmation -->
-  <section class="delete_final_machine">
-    <h2>Do you want to delete the machine: xxxxx?</h2>
-    <button type="submit" class="save">Save</button>
-    <button class="cancel">Cancel</button>
-  </section>
-
-  <!-- Client Confirmation -->
-  <section class="delete_final_client">
-    <h2>Do you want to delete the client: xxxxx?</h2>
-    <button type="submit" class="save">Save</button>
-    <button class="cancel">Cancel</button>
-  </section>
-  <!-- Message Confirmation -->
-  <section class="delete_final_message">
-    <h2>Do you want to delete the message: xxxxx?</h2>
-    <button type="submit" class="save">Save</button>
-    <button class="cancel">Cancel</button>
-  </section>
-  
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-  <script src="/js/app.js"></script>
+  <script src="/js/app.js">
+    function redirect()
+    {
+    window.location.href="https://programminghead.com/submit-button-redirect-to-another-page-in-html/";
+    }
+  </script>
 </body>
 </html>
