@@ -58,7 +58,6 @@ body{
   margin-bottom: 16px;
   background-image: url(/assets/background-rent-machinery.jpg);
   background-size: contain;
-  padding: 0px 0px;
   position: fixed;
   z-index: 4;
   box-shadow: 3px 3px 30px black;
@@ -178,9 +177,9 @@ body{
   justify-content: center;
   align-items: center;
 }
+
 .table{
   background-color: cornflowerblue;
-  flex-wrap: wrap;
   font-size: 10px;
   width: 90%;
   border-collapse: collapse;
@@ -208,7 +207,7 @@ tr:hover td{
   background-color: hsl(167, 47%, 40%);
 }
 
-.dates{
+.data{
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -228,6 +227,10 @@ section{
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.sectionForm_machine, .sectionForm_client, .sectionForm_message{
+  margin-top: 8rem;
 }
 
 form{
