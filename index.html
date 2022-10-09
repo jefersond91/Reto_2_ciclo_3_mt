@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="/styles/style.css">
-  <title>Reto 2 Mision Tic 2022</title>
+  <title>Proyecto Ciclo 3 Mision Tic 2022</title>
 </head>
 <body>
   <header class="header">
@@ -62,8 +62,8 @@
             <td>1</td>
             <td>Taladro</td>
             <td class="td_name buttons_actions">
-              <button class="button_details" onclick="details_Machine()">Details</button>
-              <button class="button_delete" onclick="delete_Machine()">Delete</button>
+              <button class="button_edit" onclick="edit_Machine(id)">Edit</button>
+              <button class="button_delete" onclick="false_delete_Machine (id)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -75,24 +75,28 @@
       <form action="" class="form machine_form" method="post">
         <h2>Machine Register</h2>
         <div class="form_tag machine_tag">
-          <label class="label" for="">Brand</label>
-          <input type="text" placeholder="brand">
+          <label class="label" for="id_machine">ID</label>
+          <input type="number" id="id_machine" placeholder="id">
         </div>
         <div class="form_tag machine_tag">
-          <label class="label" for="">Model</label>
-          <input type="number" placeholder="model">
+          <label class="label" for="brand">Brand</label>
+          <input type="text" id="brand" placeholder="brand">
         </div>
         <div class="form_tag machine_tag">
-          <label class="label" for="">Category ID</label>
-          <input type="number" placeholder="category">
+          <label class="label" for="model">Model</label>
+          <input type="number" id="model" placeholder="model">
         </div>
         <div class="form_tag machine_tag">
-          <label class="label" for="">Name</label>
-          <input type="text" placeholder="name">
+          <label class="label" for="categoryId">Category ID</label>
+          <input type="number" id="categoryId" placeholder="category">
+        </div>
+        <div class="form_tag machine_tag">
+          <label class="label" for="name_machine">Name</label>
+          <input type="text" id="name_machine" placeholder="name">
         </div>
         <div class="buttons form_buttons machine_buttons">
-          <button type="submit" class="button_save">Save</button>
-          <button class="button_cancel">Cancel</button>
+          <button type="submit" class="button_save" onclick="save_Machine()">Save</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section>
@@ -102,8 +106,8 @@
       <form action="" class="form machine_details" method="post">
         <h2>Machine Details</h2>
         <div class="details_tag machine_tag">
-          <label class="label " for="idUpdate_machine">ID</label>
-          <input type="number" id="idUpdate_machine">
+          <label id="idLabelMachine" class="label " for="idUpdate_machine">ID</label>
+          <input type="hidden" id="idUpdate_machine">
         </div>
         <div class="details_tag machine_tag">
           <label class="label " for="brandUpdate_machine">Brand</label>
@@ -122,19 +126,19 @@
           <input type="text" id="nameUpdate_machine">
         </div>
         <div class="buttons details_buttons machine_buttons">
-          <button class="button_edit">Edit</button>
-          <button class="button_update">Update</button>
-          <button class="button_cancel">Cancel</button>
+          <!-- <button class="button_edit">Edit</button> -->
+          <button class="button_update" onclick="update_Machine()">Update</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section>
     
-    <!-- Machine Confirmation -->
+    <!-- Machine Delete Confirmation -->
     <section class="delete_final delete_final_machine">
       <h2>Do you want to delete the machine: `${nombre}`?</h2>
       <div class="confirmation_buttons">
         <button type="submit" class="button_save">YES</button>
-        <button class="button_cancel">NO</button>
+        <button class="button_cancel" onclick="initial()">NO</button>
       </div>
     </section>
     <!-- ---------------------------------------------------- -->
@@ -160,8 +164,8 @@
             <td>xxxx@gmail.com</td>
             <td>33</td>
             <td class="td_action">
-              <button class="button_details" onclick="details_Client()">Details</button>
-              <button class="button_delete" onclick="delete_Client()">Delete</button>
+              <button class="button_edit" onclick="edit_Client()">Edit</button>
+              <button class="button_delete" onclick="false_delete_Client()">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -174,20 +178,24 @@
       <form action="" class="client_form" method="post">
         <h2>Client Register</h2>
         <div class="form_tag client_tag">
-          <label class="label" for="">Name</label>
-          <input type="text" placeholder="name">
+          <label class="label" for="id_client">ID</label>
+          <input type="number" id="id_client" placeholder="id">
         </div>
         <div class="form_tag client_tag">
-          <label class="label" for="">Email</label>
-          <input type="email" placeholder="xxx@gmail.com">
+          <label class="label" for="name_client">Name</label>
+          <input type="text" id="name_client" placeholder="name">
         </div>
         <div class="form_tag client_tag">
-          <label class="label" for="">Age</label>
-          <input type="number" placeholder="0 to 100" min="0" max="100">
+          <label class="label" for="email">Email</label>
+          <input type="email" id="email" placeholder="xxx@gmail.com">
+        </div>
+        <div class="form_tag client_tag">
+          <label class="label" for="age">Age</label>
+          <input type="number" id="age" placeholder="0 to 100" min="0" max="100">
         </div>
         <div class="buttons form_buttons client_buttons">
-          <button type="submit" class="button_save">Save</button>
-          <button class="button_cancel">Cancel</button>
+          <button type="submit" class="button_save" onclick="save_Client()">Save</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section>
@@ -197,8 +205,8 @@
       <form action="" class="form client_form">
         <h2>Client Details</h2>
         <div class="details_tag client_tag">
-          <label class="label" for="idUpdate_client">ID</label>
-          <input type="number" id="idUpdate_client">
+          <label id="idLabelClient" class="label" for="idUpdate_client">ID</label>
+          <input type="hidden" id="idUpdate_client">
         </div>
         <div class="details_tag client_tag">
           <label class="label" for="nameUpdate_client">Name</label>
@@ -213,19 +221,19 @@
           <input type="number" id="ageUpdate_client">
         </div>
         <div class="buttons details_buttons client_buttons">
-          <button class="button_edit">Edit</button>
-          <button class="button_update">Update</button>
-          <button class="button_cancel">Cancel</button>
+          <!-- <button class="button_edit">Edit</button> -->
+          <button class="button_update" onclick="update_Client()">Update</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section> 
     
-    <!-- Client Confirmation -->
+    <!-- Client Delete Confirmation -->
     <section class="delete_final delete_final_client">
-      <h2>Do you want to delete the client: xxxxx?</h2>
+      <h2>Do you want to delete client: xxxxx?</h2>
       <div class="confirmation_buttons">
         <button type="submit" class="button_save">YES</button>
-        <button class="button_cancel">NO</button>
+        <button class="button_cancel" onclick="initial()">NO</button>
       </div>
     </section>
     
@@ -249,8 +257,8 @@
               este es el lugar para el mensaje
             </td>
             <td class="td_action">
-              <button class="button_details">Details</button>
-              <button class="button_delete" onclick="delete_Message()">Delete</button>
+              <button class="button_edit">Edit</button>
+              <button class="button_delete" onclick="false_delete_Message()">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -262,12 +270,16 @@
       <form action="" class="message_form" method="post">
         <h2>Message Register</h2>
         <div class="form_tag message_tag">
-          <label class="label_message" for="">Message</label>
-          <textarea class="area_message" name="" id="" rows="5" placeholder="message..."></textarea>
+          <label class="label" for="id_message">ID</label>
+          <input type="number" id="id_message" placeholder="id">
+        </div>
+        <div class="form_tag message_tag">
+          <label class="label_message" for="message">Message</label>
+          <textarea class="area_message" id="message" rows="5" placeholder="message..."></textarea>
         </div>
         <div class="buttons form_buttons message_buttons">
-          <button type="submit" class="button_save">Save</button>
-          <button class="button_cancel">Cancel</button>
+          <button type="submit" class="button_save" onclick="save_Message()">Save</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section>
@@ -277,27 +289,27 @@
       <form action="" class="form message_form">
         <h2>Message Details</h2>
         <div class="details_tag message_tag">
-          <label class="label" for="idUpdate_message">ID</label>
-          <input type="number" id="idUpdate_message">
+          <label id="idLabelMessage" class="label" for="idUpdate_message">ID</label>
+          <input type="hidden" id="idUpdate_message">
         </div>
         <div class="form_tag message_tag">
           <label class="label_message" for="messageTextUpdate_message"></label>
           <textarea class="area_message" name="" id="messageTextUpdate_message" rows="5"></textarea>
         </div>
         <div class="buttons details_buttons client_buttons">
-          <button class="button_edit">Edit</button>
-          <button class="button_update">Update</button>
-          <button class="button_cancel">Cancel</button>
+          <!-- <button class="button_edit">Edit</button> -->
+          <button class="button_update" onclick="update_Message()">Update</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section> 
     
-    <!-- Message Confirmation -->
+    <!-- Message Delete Confirmation -->
     <section class="delete_final delete_final_message">
       <h2>Do you want to delete the message: xxxxx?</h2>
       <div class="confirmation_buttons">
-        <button type="submit" class="button_save">YES</button>
-        <button class="button_cancel">NO</button>
+        <button type="submit" class="button_save" onclick="final_delete" >YES</button>
+        <button class="button_cancel" onclick="initial()">NO</button>
       </div>
     </section>
   </main>
@@ -309,8 +321,8 @@
       </span>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
   <script src="/js/app.js"> </script>
 </body>
 </html>

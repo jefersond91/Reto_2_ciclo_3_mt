@@ -256,6 +256,7 @@ input{
   outline: 2px solid var(--Blue-button);
   outline-offset: 2px;
   border: none;
+  cursor: pointer;
 }
 
 .form_buttons{
@@ -269,7 +270,7 @@ input{
   flex-direction: column;
 }
 
-.button_details{
+.button_edit{
   background-color: var(--Violet-button);
   border-radius: 10px;
   margin: 0.7rem;
@@ -277,9 +278,10 @@ input{
   outline: 2px solid var(--Violet-button);
   outline-offset: 2px;
   border: none;
+  cursor: pointer;
 }
 
-.button_details:hover{
+.button_edit:hover{
   background-color: var(--Violet-button-hover);
 }
 
@@ -291,6 +293,7 @@ input{
   outline: 2px solid var(--Blue-button);
   outline-offset: 2px;
   border: none;
+  cursor: pointer;
 }
 
 .form_buttons .button_save:hover, .confirmation_buttons .button_save:hover, .button_add:hover{
@@ -304,6 +307,7 @@ input{
   outline: 2px solid var(--Red-button);
   outline-offset: 2px;
   border: none;
+  cursor: pointer;
 }
 
 .button_cancel:hover, .button_delete:hover{
@@ -317,7 +321,7 @@ input{
   padding: 0.5rem ;
 }
 
-.details_buttons .button_edit{
+/* .details_buttons .button_edit{
   background-color: var(--Green-button);
   border-radius: 10px;
   margin-left: 1rem;
@@ -329,7 +333,7 @@ input{
 
 .details_buttons .button_edit:hover{
   background-color: var(--Green-button-hover);
-}
+} */
 
 .details_buttons .button_update{
   background-color: var(--Brown-button);
@@ -339,6 +343,7 @@ input{
   outline: 2px solid var(--Brown-button);
   outline-offset: 2px;
   border: none;
+  cursor: pointer;
 }
 
 .details_buttons .button_update:hover{
@@ -441,7 +446,7 @@ input{
     flex-direction: row;
   }
   
-  .button_details{
+  .button_edit{
     background-color: var(--Violet-button);
     border-radius: 10px;
     margin: 0.7rem;
