@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="/styles/style.css">
+  <title>Proyecto Ciclo 3 Mision Tic 2022</title>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-title">
+      <img class="logo" src="/assets/logo-rent-machinery.png" alt="">
+      <h1 class="h1">
+        <a href="/index.html" title="Rent Machinery G29" class="a a-header">Rent Machinery G29</a>
+      </h1>
+    </div>
+    <!-- Nav Bar Burger Menu -->
+    <nav class="nav">
+      </div>
+      <div class="menu-icon droplist">
+        <input class="checkbox" type="checkbox" id="burger_icon" />
+        <label for="burger_icon" class="bar-btn"> <img src="/assets/menu.png" alt=""></label>
+        <ul class="ul-nav-menu">
+          <li class="li">
+            <a href="/machine.html" title="Machines" class="a a-list">Machines</a>
+          </li>
+          <li class="li">
+            <a href="/client.html" title="Clients" class="a a-list">Clients</a>
+          </li>
+          <li class="li">
+            <a href="/message.html" target="" title="Messages" class="a a-list">Messages</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Client List -->
+    <div class="data data_client" id="dataClient">
+      <h2>Client List <i class="gg-menu-hotdog"></i></h2>
+      <button class="button_add" onclick="new_Client()">Add Client</button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="table_client" id="tableClient">
+          <!-- <tr>
+            <td>1</td>
+            <td>Taladro</td>
+            <td>xxxx@gmail.com</td>
+            <td>33</td>
+            <td class="td_action">
+              <button class="button_edit" onclick="edit_Client()">Edit</button>
+              <button class="button_delete" onclick="false_delete_Client()">Delete</button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+    
+    
+    <!-- Client Form New-->
+    <section class="sectionForm_client" id="newClient">
+      <form action="" class="client_form" method="post" name="addNewClient">
+        <h2>Client Register</h2>
+        <div class="form_tag client_tag">
+          <label class="label" for="id_client">ID</label>
+          <input type="number" id="id_client" placeholder="id" name="id" >
+        </div>
+        <div class="form_tag client_tag">
+          <label class="label" for="name_client">Name</label>
+          <input type="text" id="name_client" placeholder="name" name="name" >
+        </div>
+        <div class="form_tag client_tag">
+          <label class="label" for="email">Email</label>
+          <input type="email" id="email" placeholder="xxx@gmail.com" name="email" >
+        </div>
+        <div class="form_tag client_tag">
+          <label class="label" for="age">Age</label>
+          <input type="number" id="age" placeholder="0 to 100" min="0" max="100" name="age" >
+        </div>
+        <div class="buttons form_buttons client_buttons">
+          <button class="button_save" onclick="save_Client()">Save</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
+        </div>
+      </form>
+    </section>
+    
+    <!-- Client Details -->
+    <section class="sectionDetails_client" id="detailsClient">
+      <form action="" class="form client_form">
+        <h2>Client Details</h2>
+        <div class="details_tag client_tag">
+          <label id="idLabelClient" class="label" for="idUpdate_client">ID</label>
+          <input type="hidden" id="idUpdate_client" name="id" >
+        </div>
+        <div class="details_tag client_tag">
+          <label class="label" for="nameUpdate_client">Name</label>
+          <input type="text" id="nameUpdate_client" name="name" >
+        </div>
+        <div class="details_tag client_tag">
+          <label class="label" for="emailUpdate_client">Email</label>
+          <input type="email" id="emailUpdate_client" name="email" >
+        </div>
+        <div class="details_tag client_tag">
+          <label class="label" for="ageUpdate_client">Age</label>
+          <input type="number" id="ageUpdate_client" name="age" >
+        </div>
+        <div class="buttons details_buttons client_buttons">
+          <!-- <button class="button_edit">Edit</button> -->
+          <button class="button_update" onclick="update_Client()">Update</button>
+          <button class="button_cancel" onclick="initial()">Cancel</button>
+        </div>
+      </form>
+    </section> 
+    
+    <!-- Client Delete Confirmation -->
+    <section class="delete_final delete_final_client" id="finalDeleteClient">
+      <h2>Do you want to delete client?</h2>
+      <input id="idClientDelete" type="hidden">
+      <ol class="list-group list-group-numbered">
+          <li id="idClientList"></li>
+          <li id="nameClientList"></li>
+          <li id="emailClientList"></li>
+          <li id="ageClientList"></li>
+      </ol>
+      <div class="confirmation_buttons">
+        <button class="button_save" onclick="final_delete_Client()">YES</button>
+        <button class="button_cancel" onclick="initial()">NO</button>
+      </div>
+    </section>
+    
+  </main>
+  
+
+  <footer class="footer">
+    <span class="span">Hecho con amor ❤️ por: Jeferson Mesa | <i class="far fa-copyright"></i> "2022 all rigths
+      reserved"
+      </span>
+  </footer>
+  
+  <script src="/js/client.js"> </script>
+</body>
+</html>
