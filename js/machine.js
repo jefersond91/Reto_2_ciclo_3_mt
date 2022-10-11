@@ -77,7 +77,6 @@ function add() {
   new_machine.style.display = 'inline-flex';
   details.style.display = 'none';
   data.style.display = 'none';
-  // table.style.display = "none";
   delete_machine.style.display = 'none';
 }
 
@@ -157,7 +156,6 @@ function edit(id) {
       new_machine.style.display = "none";
       details.style.display = "inline-flex";
       data.style.display = "none";
-      // table.style.display = "none";
       delete_machine.style.display = "none";
     }
   };
@@ -195,9 +193,7 @@ function update() {
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 201 ){
-      getMachineList();
-      getClientList();
-      getMessageList();
+      getList();
       initial();
     }
   };
@@ -237,7 +233,6 @@ function false_delete(id) {
     new_machine.style.display = "none";
     details.style.display = "none";
     data.style.display = "none";
-    // table.style.display = "none";
     delete_machine.style.display = "inline-flex";
     }
   };

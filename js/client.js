@@ -1,35 +1,24 @@
-let new_client = document.getElementById("newClient" );
-let update_client = document.getElementById("detailsClient" );
-let data_client = document.getElementById("dataClient" );
-let table_client = document.getElementById("tableClient" );
+let new_client = document.getElementById("new" );
+let details = document.getElementById("details" );
+let data = document.getElementById("dataClient" );
+let table = document.getElementById("tableClient" );
 let delete_client = document.getElementById("finalDeleteClient" );
 
 initial();
-getClientList();
+getList();
 
 function initial () {
-  new_machine.style.display = "none";
-  update_machine.style.display = "none";
-  data_machine.style.display = "inline-flex";
-  // table_machine.style.display = "table";
-  delete_machine.style.display = "none";
-
   new_client.style.display = "none";
-  update_client.style.display = "none";
-  data_client.style.display = "inline-flex";
-  // table_client.style.display = "table";
+  details.style.display = "none";
+  data.style.display = "inline-flex";
+  // table.style.display = "table";
   delete_client.style.display = "none";
-
-  new_message.style.display = "none";
-  update_message.style.display = "none";
-  data_message.style.display = "inline-flex";
-  // table_message.style.display = "table";
-  delete_message.style.display = "none";
 }
+
 
 // -----------------------------------------------------------
 //actuliza la lista con los datos de la DB
-function getClientList () {
+function getList () {
   let url =
     "https://g2d88332c958e94-z3j7qk0nagbnjwez.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/client/client";
 
@@ -62,12 +51,12 @@ function getClientList () {
               <td>" + response.items[i].email + "</td>\
               <td>" + response.items[i].age + '</td>\
               <td>\
-                    <button class="button_edit" onclick="edit_Client(' + id + ')">Edit</button>\
-                    <button class="button_delete" onclick="false_delete_Client(' + id + ')">Delete</button>\
+                    <button class="button_edit" onclick="edit(' + id + ')">Edit</button>\
+                    <button class="button_delete" onclick="false_delete(' + id + ')">Delete</button>\
               </td>\
         </tr>';
       }
-      table_client.innerHTML = registers;
+      table.innerHTML = registers;
     }
   };
   request.open( "GET", url, true );
@@ -77,30 +66,22 @@ function getClientList () {
 
 // -----------------------------------------------------------
 //mostrar formulario para nuevo ingreso
-function new_Client () {
-  new_machine.style.display = 'none';
-  update_machine.style.display = 'none';
-  data_machine.style.display = 'none';
-  // table_machine.style.display = "none";
-  delete_machine.style.display = 'none';
+function add() {
+  document.getElementById("id_client").value=""
+  document.getElementById("name_client").value=""
+  document.getElementById("email").value=""
+  document.getElementById("age").value=""
 
   new_client.style.display = 'inline-flex';
-  update_client.style.display = 'none';
-  data_client.style.display = 'none';
-  // table_client.style.display = "none";
+  details.style.display = 'none';
+  data.style.display = 'none';
   delete_client.style.display = 'none';
-
-  new_message.style.display = 'none';
-  update_message.style.display = 'none';
-  data_message.style.display = 'none';
-  // table_message.style.display = "none";
-  delete_message.style.display = 'none';
 }
 
 
 // -----------------------------------------------------------
 //agregar un nuevo elemento al sistema (interfaz y DB)
-function save_Client() {
+function save() {
   //acceder a los inputs
   let idClient = document.getElementById("id_client").value;
   let nameClient = document.getElementById("name_client").value;
@@ -127,9 +108,7 @@ function save_Client() {
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 201 ){
       //Configura el aspecto de la pagina
-      getClientList()
-      getMachineList()
-      getMessageList()
+      getList()
       initial()
     }
   };
@@ -141,7 +120,7 @@ function save_Client() {
 
 // -----------------------------------------------------------
 //recupera los datos para el formulario de modificacion
-function edit_Client (id) {
+function edit(id) {
   //crear un objeto
   let request = new XMLHttpRequest();
   let url =
@@ -166,23 +145,10 @@ function edit_Client (id) {
       // se modifica el titulo para que muestre el id de la maquina y no pueda modificarse
       document.getElementById("idLabelClient").innerHTML = "<strong>ID :</strong>" + idUpdate_client;
 
-      new_machine.style.display = "none";
-      update_machine.style.display = "none";
-      data_machine.style.display = "none";
-      // table_machine.style.display = "none";
-      delete_machine.style.display = "none";
-
       new_client.style.display = "none";
-      update_client.style.display = "inline-flex";
-      data_client.style.display = "none";
-      // table_client.style.display = "none";
+      details.style.display = "inline-flex";
+      data.style.display = "none";
       delete_client.style.display = "none";
-
-      new_message.style.display = "none";
-      update_message.style.display = "none";
-      data_message.style.display = "none";
-      // table_message.style.display = "none";
-      delete_message.style.display = "none";
     }
   };
   request.open( "GET", url + "/" + id, true );
@@ -192,11 +158,11 @@ function edit_Client (id) {
 
 // -----------------------------------------------------------
 // envía peticion PUT para modificar recurso en interfaz y DB
-function update_Client() {
+function update() {
   //acceder a los inputs
   let idClient = document.getElementById("idUpdate_client" ).value;
   let nameClient = document.getElementById("nameUpdate_client" ).value;
-  let emailClient = document.getElementById("emaillUpdate_client" ).value;
+  let emailClient = document.getElementById("emailUpdate_client" ).value;
   let ageClient = document.getElementById("ageUpdate_client" ).value;
 
   // crear objecto javascript
@@ -218,13 +184,11 @@ function update_Client() {
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 201 ){
-      getMachineList();
-      getMessageList();
-      getClientList();
+      getList();
       initial();
     }
   };
-  request.open( "POST", url, true );
+  request.open( "PUT", url, true );
   request.setRequestHeader("content-type", "application/json;charset=UTF-8");
   request.send(objectJson)
 }
@@ -232,7 +196,7 @@ function update_Client() {
 
 // -----------------------------------------------------------
 //recupera los datos para el formulario de eliminación
-function false_delete_Client (id) {
+function false_delete(id) {
   //1 crear un objeto XMLHttpRequest
   let request = new XMLHttpRequest();
   let url = "https://g2d88332c958e94-z3j7qk0nagbnjwez.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/client/client";
@@ -254,23 +218,10 @@ function false_delete_Client (id) {
       document.getElementById("emailClientList").innerHTML = "<strong>Email :</strong>" + emailClient
       document.getElementById("ageClientList").innerHTML = "<strong> Age:</strong>" + ageClient
 
-    new_machine.style.display = "none";
-    update_machine.style.display = "none";
-    data_machine.style.display = "none";
-    // table_machine.style.display = "none";
-    delete_machine.style.display = "none";
-
     new_client.style.display = "none";
-    update_client.style.display = "none";
-    data_client.style.display = "none";
-    // table_client.style.display = "none";
+    details.style.display = "none";
+    data.style.display = "none";
     delete_client.style.display = "inline-flex";
-
-    new_message.style.display = "none";
-    update_message.style.display = "none";
-    data_message.style.display = "none";
-    // table_message.style.display = "none";
-    delete_message.style.display = "none";
     }
   };
   request.open("GET", url + "/" + id, true);
@@ -280,7 +231,7 @@ function false_delete_Client (id) {
 
 // -----------------------------------------------------------
 //elimacion definitiva del recurso de la interfaz y DB
-function final_delete_Client() {
+function final_delete() {
   //acceder a los inputs
   let idClient = document.getElementById("idClientDelete" ).value;
 
@@ -300,9 +251,7 @@ function final_delete_Client() {
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 204 ){
-      getMachineList();
-      getMessageList();
-      getClientList();
+      getList();
       initial();
     }
   };

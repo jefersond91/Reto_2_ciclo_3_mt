@@ -41,8 +41,11 @@
 
     <!-- Client List -->
     <div class="data data_client" id="dataClient">
+      <div>
+        <a href="/index.html"><img src="/assets/flecha-izquierda.png" alt="Regresar"></a>
+      </div>
       <h2>Client List <i class="gg-menu-hotdog"></i></h2>
-      <button class="button_add" onclick="new_Client()">Add Client</button>
+      <button class="button_add" onclick="add()">Add Client</button>
       <table class="table">
         <thead>
           <tr>
@@ -70,55 +73,61 @@
     
     
     <!-- Client Form New-->
-    <section class="sectionForm_client" id="newClient">
-      <form action="" class="client_form" method="post" name="addNewClient">
-        <h2>Client Register</h2>
+    <section class="sectionForm_client" id="new">
+      <form action="" class="client_form">
+        <div>
+          <a href="/client.html"><img src="/assets/flecha-izquierda.png" alt="Return"></a>
+        </div>
+        <h2>New Client</h2>
         <div class="form_tag client_tag">
           <label class="label" for="id_client">ID</label>
-          <input type="number" id="id_client" placeholder="id" name="id" >
+          <input type="number" id="id_client" placeholder="id">
         </div>
         <div class="form_tag client_tag">
           <label class="label" for="name_client">Name</label>
-          <input type="text" id="name_client" placeholder="name" name="name" >
+          <input type="text" id="name_client" placeholder="name">
         </div>
         <div class="form_tag client_tag">
           <label class="label" for="email">Email</label>
-          <input type="email" id="email" placeholder="xxx@gmail.com" name="email" >
+          <input type="email" id="email" placeholder="xxx@gmail.com">
         </div>
         <div class="form_tag client_tag">
           <label class="label" for="age">Age</label>
-          <input type="number" id="age" placeholder="0 to 100" min="0" max="100" name="age" >
+          <input type="number" id="age" placeholder="0 to 100" min="0" max="100">
         </div>
         <div class="buttons form_buttons client_buttons">
-          <button class="button_save" onclick="save_Client()">Save</button>
+          <button class="button_save" onclick="save()">Save</button>
           <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section>
     
     <!-- Client Details -->
-    <section class="sectionDetails_client" id="detailsClient">
-      <form action="" class="form client_form">
+    <section class="sectionDetails_client" id="details">
+      <form action="" class="form client_details">
+        <div>
+          <a href="/client.html"><img src="/assets/flecha-izquierda.png" alt="Return"></a>
+        </div>
         <h2>Client Details</h2>
         <div class="details_tag client_tag">
           <label id="idLabelClient" class="label" for="idUpdate_client">ID</label>
-          <input type="hidden" id="idUpdate_client" name="id" >
+          <input type="hidden" id="idUpdate_client">
         </div>
         <div class="details_tag client_tag">
           <label class="label" for="nameUpdate_client">Name</label>
-          <input type="text" id="nameUpdate_client" name="name" >
+          <input type="text" id="nameUpdate_client">
         </div>
         <div class="details_tag client_tag">
           <label class="label" for="emailUpdate_client">Email</label>
-          <input type="email" id="emailUpdate_client" name="email" >
+          <input type="email" id="emailUpdate_client">
         </div>
         <div class="details_tag client_tag">
           <label class="label" for="ageUpdate_client">Age</label>
-          <input type="number" id="ageUpdate_client" name="age" >
+          <input type="number" id="ageUpdate_client">
         </div>
         <div class="buttons details_buttons client_buttons">
           <!-- <button class="button_edit">Edit</button> -->
-          <button class="button_update" onclick="update_Client()">Update</button>
+          <button class="button_update" onclick="update()">Update</button>
           <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
@@ -135,7 +144,7 @@
           <li id="ageClientList"></li>
       </ol>
       <div class="confirmation_buttons">
-        <button class="button_save" onclick="final_delete_Client()">YES</button>
+        <button class="button_save" onclick="final_delete()">YES</button>
         <button class="button_cancel" onclick="initial()">NO</button>
       </div>
     </section>
