@@ -42,10 +42,10 @@
     <!-- Machine List -->
     <div class="data data_machine" id="dataMachine">
       <div>
-        <a href="index.html"><img src="/assets/flecha-izquierda.png" alt="Regresar"></a>
-    </div>
+        <a href="/index.html"><img src="/assets/flecha-izquierda.png" alt="Regresar"></a>
+      </div>
       <h2>Machine List</h2>
-      <button class="button_add" onclick="new_Machine()">Add Machine</button>
+      <button class="button_add" onclick="add()">Add Machine</button>
       <table class="table ">
         <thead>
           <tr>
@@ -65,8 +65,8 @@
             <td>1</td>
             <td>Taladro</td>
             <td class="buttons_actions">
-              <button class="button_edit" onclick="edit_Machine(id)">Edit</button>
-              <button class="button_delete" onclick="false_delete_Machine (id)">Delete</button>
+              <button class="button_edit" onclick="edit(id)">Edit</button>
+              <button class="button_delete" onclick="false_delete(id)">Delete</button>
             </td>
           </tr> -->
         </tbody>
@@ -74,63 +74,69 @@
     </div>
     
     <!-- Machine Form New -->
-    <section class="sectionForm_machine" id="newMachine">
-      <form action="" class="form machine_form" method="post" name="addNewMachine">
+    <section class="sectionForm_machine" id="new">
+      <form action="" class="form machine_form" >
+        <div>
+          <a href="/machine.html"><img src="/assets/flecha-izquierda.png" alt="Regresar"></a>
+        </div>
         <h2>New Machine</h2>
         <div class="form_tag machine_tag">
           <label class="label" for="id_machine">ID</label>
-          <input type="number" id="id_machine" placeholder="id" name="id" >
+          <input type="number" id="id_machine" placeholder="id">
         </div>
         <div class="form_tag machine_tag">
           <label class="label" for="brand">Brand</label>
-          <input type="text" id="brand" placeholder="brand" name="brand" >
+          <input type="text" id="brand" placeholder="brand">
         </div>
         <div class="form_tag machine_tag">
           <label class="label" for="model">Model</label>
-          <input type="number" id="model" placeholder="model" name="model" >
+          <input type="number" id="model" placeholder="model">
         </div>
         <div class="form_tag machine_tag">
           <label class="label" for="categoryId">Category ID</label>
-          <input type="number" id="categoryId" placeholder="category" name="categoryId" >
+          <input type="number" id="categoryId" placeholder="category">
         </div>
         <div class="form_tag machine_tag">
           <label class="label" for="name_machine">Name</label>
-          <input type="text" id="name_machine" placeholder="name" name="name" >
+          <input type="text" id="name_machine" placeholder="name">
         </div>
         <div class="buttons form_buttons machine_buttons">
-          <button class="button_save" onclick="save_Machine()">Save</button>
+          <button class="button_save" onclick="save()">Save</button>
           <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section>
     
     <!-- Machine Details -->
-    <section class="sectionDetails_machine" id="detailsMachine">
-      <form action="" class="form machine_details" method="post">
+    <section class="sectionDetails_machine" id="details">
+      <form action="" class="form machine_details">
+        <div>
+          <a href="index.html"><img src="/assets/flecha-izquierda.png" alt="Regresar"></a>
+        </div>
         <h2>Machine Details</h2>
         <div class="details_tag machine_tag">
           <label id="idLabelMachine" class="label " for="idUpdate_machine">ID</label>
-          <input type="hidden" id="idUpdate_machine" name="id" >
+          <input type="hidden" id="idUpdate_machine">
         </div>
         <div class="details_tag machine_tag">
           <label class="label " for="brandUpdate_machine">Brand</label>
-          <input type="text" id="brandUpdate_machine" name="brand" >
+          <input type="text" id="brandUpdate_machine">
         </div>
         <div class="details_tag machine_tag">
           <label class="label" for="modelUpdate_machine">Model</label>
-          <input type="number" id="modelUpdate_machine" name="model" >
+          <input type="number" id="modelUpdate_machine">
         </div>
         <div class="details_tag machine_tag">
           <label class="label" for="categoryIdUpdate_machine">Category ID</label>
-          <input type="number" id="categoryIdUpdate_machine" name="categoryId" >
+          <input type="number" id="categoryIdUpdate_machine">
         </div>
         <div class="details_tag machine_tag">
           <label class="label" for="nameUpdate_machine">Name</label>
-          <input type="text" id="nameUpdate_machine" name="name" >
+          <input type="text" id="nameUpdate_machine">
         </div>
         <div class="buttons details_buttons machine_buttons">
           <!-- <button class="button_edit">Edit</button> -->
-          <button class="button_update" onclick="update_Machine()">Update</button>
+          <button class="button_update" onclick="update()">Update</button>
           <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
@@ -148,7 +154,7 @@
           <li id="nameMachineList"></li>
       </ol>
       <div class="confirmation_buttons">
-        <button class="button_save" onclick="final_delete_Machine()">YES</button>
+        <button class="button_save" onclick="final_delete()">YES</button>
         <button class="button_cancel" onclick="initial()">NO</button>
       </div>
     </section>

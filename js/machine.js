@@ -1,35 +1,24 @@
-let new_machine = document.getElementById("newMachine" );
-let update_machine = document.getElementById("detailsMachine" );
-let data_machine = document.getElementById("dataMachine" );
-let table_machine = document.getElementById("tableMachine" );
+let new_machine = document.getElementById("new" );
+let details = document.getElementById("details" );
+let data = document.getElementById("dataMachine" );
+let table = document.getElementById("tableMachine" );
 let delete_machine = document.getElementById("finalDeleteMachine" );
 
 initial();
-getMachineList();
+getList();
 
 function initial () {
   new_machine.style.display = "none";
-  update_machine.style.display = "none";
-  data_machine.style.display = "inline-flex";
-  // table_machine.style.display = "table";
+  details.style.display = "none";
+  data.style.display = "inline-flex";
+  // table.style.display = "table";
   delete_machine.style.display = "none";
-
-  new_client.style.display = "none";
-  update_client.style.display = "none";
-  data_client.style.display = "inline-flex";
-  // table_client.style.display = "table";
-  delete_client.style.display = "none";
-
-  new_message.style.display = "none";
-  update_message.style.display = "none";
-  data_message.style.display = "inline-flex";
-  // table_message.style.display = "table";
-  delete_message.style.display = "none";
 }
+
 
 // -----------------------------------------------------------
 //actuliza la lista con los datos de la DB
-function getMachineList () {
+function getList () {
   let url =
     "https://g2d88332c958e94-z3j7qk0nagbnjwez.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/machine/machine";
 
@@ -63,12 +52,12 @@ function getMachineList () {
               <td>" + response.items[i].category_id + "</td>\
               <td>" + response.items[i].name + '</td>\
               <td>\
-                    <button class="button_edit" onclick="edit_Machine(' + id + ')">Edit</button>\
-                    <button class="button_delete" onclick="false_delete_Machine(' + id + ')">Delete</button>\
+                    <button class="button_edit" onclick="edit(' + id + ')">Edit</button>\
+                    <button class="button_delete" onclick="false_delete(' + id + ')">Delete</button>\
               </td>\
           </tr>';
       }
-      table_machine.innerHTML = registers;
+      table.innerHTML = registers;
     }
   };
   request.open( 'GET', url, true );
@@ -78,36 +67,24 @@ function getMachineList () {
 
 // -----------------------------------------------------------
 //mostrar formulario para nuevo ingreso
-function new_Machine () {
-  // document.getElementById(#d_machine").value=""
-  // document.querySelector("#brand").value=""
-  // document.querySelector("#model").value=""
-  // document.querySelector("#categoryId").value=""
-  // document.querySelector("#name_machine").value=""
+function add() {
+  document.getElementById("id_machine").value=""
+  document.getElementById("brand").value=""
+  document.getElementById("model").value=""
+  document.getElementById("categoryId").value=""
+  document.getElementById("name_machine").value=""
   
   new_machine.style.display = 'inline-flex';
-  update_machine.style.display = 'none';
-  data_machine.style.display = 'none';
-  // table_machine.style.display = "none";
+  details.style.display = 'none';
+  data.style.display = 'none';
+  // table.style.display = "none";
   delete_machine.style.display = 'none';
-
-  new_client.style.display = 'none';
-  update_client.style.display = 'none';
-  data_client.style.display = 'none';
-  // table_client.style.display = "none";
-  delete_client.style.display = 'none';
-
-  new_message.style.display = 'none';
-  update_message.style.display = 'none';
-  data_message.style.display = 'none';
-  // table_message.style.display = "none";
-  delete_message.style.display = 'none';
 }
 
 
 // -----------------------------------------------------------
 //agregar un nuevo elemento al sistema (interfaz y DB)
-function save_Machine() {
+function save() {
   //acceder a los datos de los inputs
   let idMachine = document.getElementById("id_machine").value;
   let brandMachine = document.getElementById("brand").value;
@@ -139,9 +116,7 @@ function save_Machine() {
       console.log( "readyState: " + this.readyState )
       
       //Configura el aspecto de la pagina
-      getMachineList()
-      getClientList();
-      getMessageList();
+      getList();
       initial()
     }
   };
@@ -153,7 +128,7 @@ function save_Machine() {
 
 // -----------------------------------------------------------
 //recupera los datos para el formulario de modificacion
-function edit_Machine (id) {
+function edit(id) {
   //crear un objeto
   let request = new XMLHttpRequest();
   let url =
@@ -180,22 +155,10 @@ function edit_Machine (id) {
       document.getElementById("idLabelMachine").innerHTML = "<strong>ID :</strong>" + idUpdate_machine;
 
       new_machine.style.display = "none";
-      update_machine.style.display = "inline-flex";
-      data_machine.style.display = "none";
-      // table_machine.style.display = "none";
+      details.style.display = "inline-flex";
+      data.style.display = "none";
+      // table.style.display = "none";
       delete_machine.style.display = "none";
-
-      new_client.style.display = "none";
-      update_client.style.display = "none";
-      data_client.style.display = "none";
-      // table_client.style.display = "none";
-      delete_client.style.display = "none";
-
-      new_message.style.display = "none";
-      update_message.style.display = "none";
-      data_message.style.display = "none";
-      // table_message.style.display = "none";
-      delete_message.style.display = "none";
     }
   };
   request.open( "GET", url + "/" + id, true );
@@ -205,7 +168,7 @@ function edit_Machine (id) {
 
 // -----------------------------------------------------------
 // envía peticion PUT para modificar recurso en interfaz y DB
-function update_Machine() {
+function update() {
   //acceder a los inputs
   let idMachine = document.getElementById("idUpdate_machine" ).value;
   let brandMachine = document.getElementById("brandUpdate_machine" ).value;
@@ -246,7 +209,7 @@ function update_Machine() {
 
 // -----------------------------------------------------------
 //recupera los datos para el formulario de eliminación
-function false_delete_Machine (id) {
+function false_delete(id) {
    //1 crear un objeto XMLHttpRequest
   let request = new XMLHttpRequest();
   let url = "https://g2d88332c958e94-z3j7qk0nagbnjwez.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/machine/machine";
@@ -272,22 +235,10 @@ function false_delete_Machine (id) {
       document.getElementById("nameMachineList").innerHTML = "<strong> Name :</strong>" + nameMachine
 
     new_machine.style.display = "none";
-    update_machine.style.display = "none";
-    data_machine.style.display = "none";
-    // table_machine.style.display = "none";
+    details.style.display = "none";
+    data.style.display = "none";
+    // table.style.display = "none";
     delete_machine.style.display = "inline-flex";
-
-    new_client.style.display = "none";
-    update_client.style.display = "none";
-    data_client.style.display = "none";
-    // table_client.style.display = "none";
-    delete_client.style.display = "none";
-
-    new_message.style.display = "none";
-    update_message.style.display = "none";
-    data_message.style.display = "none";
-    // table_message.style.display = "none";
-    delete_message.style.display = "none";
     }
   };
   request.open("GET", url + "/" + id, true);
@@ -297,7 +248,7 @@ function false_delete_Machine (id) {
 
 // -----------------------------------------------------------
 //elimacion definitiva del recurso de la interfaz y DB
-function final_delete_Machine() {
+function final_delete() {
 //recuperar la informacion ingresada en el formulario  
   let idMachine = document.getElementById("idMachineDelete" ).value;
 
@@ -317,9 +268,7 @@ function final_delete_Machine() {
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 204 ){
-      getMachineList();
-      getClientList();
-      getMessageList();
+      getList();
       initial();
     }
   };
