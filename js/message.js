@@ -7,6 +7,27 @@ let delete_message = document.getElementById("finalDeleteMessage" );
 initial();
 getList();
 
+// let buttonAdd = document.getElementById("add" );
+// buttonAdd.addEventListener("click", ()=> {
+//   document.getElementById("id_message").value=""
+//   document.getElementById("message").value=""
+
+//   new_message.style.display = 'inline-flex';
+//   details.style.display = 'none';
+//   data.style.display = 'none';
+//   delete_message.style.display = 'none';
+// })
+
+// let buttonCancel = document.querySelector(".button_cancel" );
+// buttonCancel.addEventListener("click", ()=> 
+//   initial()
+// )
+
+// let buttonNo = document.querySelector(".no" );
+// buttonNo.addEventListener("click", ()=> 
+//   initial()
+// )
+
 function initial () {
   new_message.style.display = "none";
   details.style.display = "none";
