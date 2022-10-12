@@ -1,45 +1,33 @@
-let new_message = document.getElementById("newMessage" );
-let update_message = document.getElementById("detailsMessage" );
-let data_message = document.getElementById("dataMessage" );
-let table_message = document.getElementById("tableMessage" );
+let new_message = document.getElementById("new" );
+let details = document.getElementById("details" );
+let data = document.getElementById("dataMessage" );
+let table = document.getElementById("tableMessage" );
 let delete_message = document.getElementById("finalDeleteMessage" );
 
 initial();
-getMessageList();
+getList();
 
 function initial () {
-  new_machine.style.display = "none";
-  update_machine.style.display = "none";
-  data_machine.style.display = "inline-flex";
-  // table_machine.style.display = "table";
-  delete_machine.style.display = "none";
-
-  new_client.style.display = "none";
-  update_client.style.display = "none";
-  data_client.style.display = "inline-flex";
-  // table_client.style.display = "table";
-  delete_client.style.display = "none";
-
   new_message.style.display = "none";
-  update_message.style.display = "none";
-  data_message.style.display = "inline-flex";
-  // table_message.style.display = "table";
+  details.style.display = "none";
+  data.style.display = "inline-flex";
   delete_message.style.display = "none";
 }
 
+
 // -----------------------------------------------------------
 //actuliza la lista con los datos de la DB
-function getMessageList () {
+function getList() {
   let url =
     "https://g2d88332c958e94-z3j7qk0nagbnjwez.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/message/message";
 
   //crear un objeto
   let request = new XMLHttpRequest();
+  let registers = "";
 
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
     //almacena el html para generar los registros de la tabla
-    let registers = "";
 
     //valida si la peticion fue exitosa
     if ( this.readyState == 4 && this.status == 200 ){
@@ -56,16 +44,17 @@ function getMessageList () {
         let id = response.items[i].id;
 
         registers +=
-        '<tr>\
-              <th scope="row">' + response.items[i].id + "</th>\
-              <td>" + response.items[i].messagetext + '</td>\
+        "<tr>\
+              <th scope=\"row\">" + response.items[i].id + "</th>\
+              <td>" + response.items[i].messagetext + "</td>\
               <td>\
-                    <button class="button_edit" onclick="edit_Message(' + id + ')">Edit</button>\
-                    <button class="button_delete" onclick="false_delete_Message(' + id + ')">Delete</button>\
+                    <button class=\"button_edit\" onclick=\"edit(" + id + ")\">Edit</button>\
+                    <button class=\"button_delete\" onclick=\"false_delete(" + id + ")\">Delete</button>\
               </td>\
-        </tr>';
+        </tr>";
       }
-      table_message.innerHTML = registers;
+      table.innerHTML = registers;
+      initial();
     }
   };
   request.open( "GET", url, true );
@@ -75,42 +64,32 @@ function getMessageList () {
 
 // -----------------------------------------------------------
 //mostrar formulario para nuevo ingreso
-function new_Message () {
-  new_machine.style.display = 'nonne';
-  update_machine.style.display = 'none';
-  data_machine.style.display = 'none';
-  // table_machine.style.display = "none";
-  delete_machine.style.display = 'none';
-
-  new_client.style.display = 'none';
-  update_client.style.display = 'none';
-  data_client.style.display = 'none';
-  // table_client.style.display = "none";
-  delete_client.style.display = 'none';
+function add() {
+  document.getElementById("id_message").value=""
+  document.getElementById("message").value=""
 
   new_message.style.display = 'inline-flex';
-  update_message.style.display = 'none';
-  data_message.style.display = 'none';
-  // table_message.style.display = "none";
+  details.style.display = 'none';
+  data.style.display = 'none';
   delete_message.style.display = 'none';
 }
 
 
 // -----------------------------------------------------------
 //agregar un nuevo elemento al sistema (interfaz y DB)
-function save_Message() {
+function save() {
   //acceder a los inputs
-  let idMessage = document.getElementById("id_message").value;
-  let messageMessage = document.getElementById("message").value;
+  let idMessage= document.getElementById("id_message").value;
+  let messageText = document.getElementById("message").value;
 
   // crear objecto javascript
   let object = {
     id: idMessage,
-    message: messageMessage
+    messagetext: messageText
   }
 
   //convertir el objecto javascript en string o formato JSON
-  let objectJson = JSON.stringify(object);
+  let objectJson = JSON.stringify(object)
   let url =
     "https://g2d88332c958e94-z3j7qk0nagbnjwez.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/message/message";
 
@@ -121,10 +100,8 @@ function save_Message() {
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 201 ){
       //Configura el aspecto de la pagina
-      getMachineList()
-      getClientList()
-      getMessageList()
-      initial()
+      getList();
+      initial();
     }
   };
   request.open( "POST", url, true );
@@ -135,7 +112,7 @@ function save_Message() {
 
 // -----------------------------------------------------------
 //recupera los datos para el formulario de modificacion
-function edit_Message (id) {
+function edit(id) {
   //crear un objeto
   let request = new XMLHttpRequest();
   let url =
@@ -143,8 +120,7 @@ function edit_Message (id) {
 
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
-    if ( this.readyState == 4 && this.status == 200 )
-    {
+    if ( this.readyState == 4 && this.status == 200 ){
       let response = JSON.parse( this.responseText );
 
       let idUpdate_message = response.items[ 0 ].id;
@@ -156,22 +132,9 @@ function edit_Message (id) {
       // se modifica el titulo para que muestre el id del mensaje y no pueda modificarse
       document.getElementById("idLabelMessage").innerHTML = "<strong>ID :</strong>" + idUpdate_message;
 
-      new_machine.style.display = "none";
-      update_machine.style.display = "none";
-      data_machine.style.display = "none";
-      // table_machine.style.display = "none";
-      delete_machine.style.display = "none";
-
-      new_client.style.display = "none";
-      update_client.style.display = "none";
-      data_client.style.display = "none";
-      // table_client.style.display = "none";
-      delete_client.style.display = "none";
-
       new_message.style.display = "none";
-      update_message.style.display = "inline-flex";
-      data_message.style.display = "none";
-      // table_message.style.display = "none";
+      details.style.display = "inline-flex";
+      data.style.display = "none";
       delete_message.style.display = "none";
     }
   };
@@ -182,15 +145,15 @@ function edit_Message (id) {
 
 // -----------------------------------------------------------
 // envía peticion PUT para modificar recurso en interfaz y DB
-function update_Message() {
+function update() {
   //acceder a los inputs
   let idMessage = document.getElementById("idUpdate_message" ).value;
-  let messageMessage = document.getElementById("messageTextUpdate_message" ).value;
+  let messageText = document.getElementById("messageTextUpdate_message" ).value;
 
   // crear objecto javascript
   let object = {
     id: idMessage,
-    message: messageMessage
+    messagetext: messageText
   }
 
   //convertir el objecto javascript en string o formato JSON
@@ -204,9 +167,7 @@ function update_Message() {
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 201 ){
-      getMachineList();
-      getClientList();
-      getMessageList();
+      getList();
       initial();
     }
   };
@@ -218,7 +179,7 @@ function update_Message() {
 
 // -----------------------------------------------------------
 //recupera los datos para el formulario de eliminación
-function false_delete_Message (id) {
+function false_delete(id) {
   //1 crear un objeto XMLHttpRequest
   let request = new XMLHttpRequest();
   let url = "https://g2d88332c958e94-z3j7qk0nagbnjwez.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/message/message";
@@ -236,22 +197,9 @@ function false_delete_Message (id) {
       document.getElementById("idMessageList").innerHTML = "<strong> ID :</strong>" + idMessage
       document.getElementById("messageMessageList").innerHTML = "<strong>Message :</strong>" + messageMessage
 
-    new_machine.style.display = "none";
-    update_machine.style.display = "none";
-    data_machine.style.display = "none";
-    // table_machine.style.display = "none";
-    delete_machine.style.display = "none";
-
-    new_client.style.display = "none";
-    update_client.style.display = "none";
-    data_client.style.display = "none";
-    // table_client.style.display = "none";
-    delete_client.style.display = "none";
-
     new_message.style.display = "none";
-    update_message.style.display = "none";
-    data_message.style.display = "none";
-    // table_message.style.display = "none";
+    details.style.display = "none";
+    data.style.display = "none";
     delete_message.style.display = "inline-flex";
     }
   };
@@ -262,7 +210,7 @@ function false_delete_Message (id) {
 
 // -----------------------------------------------------------
 //elimacion definitiva del recurso de la interfaz y DB
-function final_delete_Message() {
+function final_delete() {
   //acceder a los inputs
   let idMessage = document.getElementById("idMessageDelete" ).value;
 
@@ -281,10 +229,8 @@ function final_delete_Message() {
 
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
-    if ( this.readyState == 4 && this.status == 201 ){
-      // getMachineList();
-      // getClientList();
-      getMessageList();
+    if ( this.readyState == 4 && this.status == 204 ){
+      getList();
       initial();
     }
   };

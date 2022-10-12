@@ -11,7 +11,6 @@ function initial () {
   new_machine.style.display = "none";
   details.style.display = "none";
   data.style.display = "inline-flex";
-  // table.style.display = "table";
   delete_machine.style.display = "none";
 }
 
@@ -111,12 +110,9 @@ function save() {
   //asignar funcion a propiedad onreadystatechance y verificar si es exitosa la respuesta
   request.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 201 ){
-      console.log( "codigo de respuesta: " + this.status );
-      console.log( "readyState: " + this.readyState )
-      
       //Configura el aspecto de la pagina
       getList();
-      initial()
+      initial();
     }
   };
   request.open( "POST", url, true )

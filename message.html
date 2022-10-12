@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1.0">
   
   <link rel="stylesheet" href="/styles/style.css">
   <title>Proyecto Ciclo 3 Mision Tic 2022</title>
@@ -41,9 +41,12 @@
 
     <!-- Message List -->
     <div class="data data_message" id="dataMessage">
+      <div>
+        <a href="/index.html"><img src="/assets/flecha-izquierda.png" alt="Return"></a>
+      </div>
       <h2>Message List</h2>
-      <button class="button_add" onclick="new_Message()">Add Message</button>
-      <table class="table ">
+      <button class="button_add" onclick="add()">Add Message</button>
+      <table class="table">
         <thead>
           <tr>
             <th>ID</th>
@@ -59,7 +62,7 @@
             </td>
             <td class="td_action">
               <button class="button_edit">Edit</button>
-              <button class="button_delete" onclick="false_delete_Message()">Delete</button>
+              <button class="button_delete" onclick="false_delete()">Delete</button>
             </td>
           </tr> -->
         </tbody>
@@ -67,39 +70,45 @@
     </div>
     
     <!-- Message Form New-->
-    <section class="sectionForm_message" id="newMessage">
-      <form action="" class="message_form" method="post" name="addNewMessage">
-        <h2>Message Register</h2>
+    <section class="sectionForm_message" id="new">
+      <form action="" class="message_form">
+        <div>
+          <a href="/message.html"><img src="/assets/flecha-izquierda.png" alt="Return"></a>
+        </div>
+        <h2>New Message</h2>
         <div class="form_tag message_tag">
           <label class="label" for="id_message">ID</label>
-          <input type="number" id="id_message" placeholder="id" name="id" >
+          <input type="number" id="id_message" placeholder="id" >
         </div>
         <div class="form_tag message_tag">
           <label class="label_message" for="message">Message</label>
-          <textarea class="area_message" name="area_message" id="message" rows="5" placeholder="message..."></textarea>
+          <input type="text" class="area_message" id="message" placeholder="message...">
+          <!-- <textarea class="area_message" id="message" rows="5" placeholder="message..."></textarea> -->
         </div>
         <div class="buttons form_buttons message_buttons">
-          <button class="button_save" onclick="save_Message()">Save</button>
+          <button class="button_save" onclick="save()">Save</button>
           <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
     </section>
     
     <!-- Message Details -->
-    <section class="sectionDetails_message" id="detailsMessage">
-      <form action="" class="form message_form">
+    <section class="sectionDetails_message" id="details">
+      <form action="" class="form message_details">
+        <div>
+          <a href="/message.html"><img src="/assets/flecha-izquierda.png" alt="Return"></a>
+        </div>
         <h2>Message Details</h2>
         <div class="details_tag message_tag">
           <label id="idLabelMessage" class="label" for="idUpdate_message">ID</label>
-          <input type="hidden" id="idUpdate_message" name="id" >
+          <input type="hidden" id="idUpdate_message" >
         </div>
         <div class="form_tag message_tag">
           <label class="label_message" for="messageTextUpdate_message"></label>
-          <textarea class="area_message" name="area_message" id="messageTextUpdate_message" rows="5"></textarea>
+          <textarea class="area_message" id="messageTextUpdate_message" rows="5"></textarea>
         </div>
-        <div class="buttons details_buttons client_buttons">
-          <!-- <button class="button_edit">Edit</button> -->
-          <button class="button_update" onclick="update_Message()">Update</button>
+        <div class="buttons details_buttons message_buttons">
+          <button class="button_update" onclick="update()">Update</button>
           <button class="button_cancel" onclick="initial()">Cancel</button>
         </div>
       </form>
@@ -107,14 +116,14 @@
     
     <!-- Message Delete Confirmation -->
     <section class="delete_final delete_final_message" id="finalDeleteMessage">
-      <h2>Do you want to delete the message?</h2>
+      <h2>Do you want to delete message?</h2>
       <input id="idMessageDelete" type="hidden">
       <ol class="list-group list-group-numbered">
           <li id="idMessageList"></li>
           <li id="messageMessageList"></li>
       </ol>
       <div class="confirmation_buttons">
-        <button class="button_save" onclick="final_delete_Message()">YES</button>
+        <button class="button_save" onclick="final_delete()">YES</button>
         <button class="button_cancel" onclick="initial()">NO</button>
       </div>
     </section>
